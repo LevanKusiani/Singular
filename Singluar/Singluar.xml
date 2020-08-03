@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Singluar</name>
+    </assembly>
+    <members>
+        <member name="M:Singluar.Controllers.BalanceController.Get">
+            <summary>
+            Gets current balance on casino side
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.BalanceController.GetTotal">
+            <summary>
+            Gets current balance on the both sides
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.BalanceController.Withdraw(System.String,System.Decimal)">
+            <summary>
+            Transfers specific amount from casino to game balance
+            </summary>
+            <param name="transactionid">Transaction ID</param>
+            <param name="amount">Money amount</param>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.BalanceController.Deposit(System.String,System.Decimal)">
+            <summary>
+            Transfers specific amount from game to casino balance
+            </summary>
+            <param name="transactionid">Transaction ID</param>
+            <param name="amount">Money amount</param>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.BalanceController.Rollback(System.String)">
+            <summary>
+            Rollbacks the specific transaction
+            </summary>
+            <param name="transactionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.BalanceController.CheckTransactions(System.String)">
+            <summary>
+            Checks transaction statuses for both casino and game balance sides
+            </summary>
+            <param name="transactionId">Transaction ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.BalanceController.CheckTransaction(System.String,Singluar.Utilities.Enums.BalanceFactoryType)">
+            <summary>
+            Checks transaction status for the specific balance type
+            </summary>
+            <param name="transactionId">Transaction ID</param>
+            <param name="type">Balance type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.BalanceController.RollbackTransaction(System.String,System.Nullable{Singluar.Utilities.Enums.BalanceFactoryType})">
+            <summary>
+            Rollbacks transaction for specified balance type
+            </summary>
+            <param name="transactionId">Transactino ID</param>
+            <param name="type">balance type (rollbacks both sides if null)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.CasinoBalanceController.Get">
+            <summary>
+            Gets current casino balance
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.CasinoBalanceController.CheckTransaction(System.String)">
+            <summary>
+            Checks transaction status
+            </summary>
+            <param name="transactionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.GameBalanceController.Get">
+            <summary>
+            Gets current game balance
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Singluar.Controllers.GameBalanceController.CheckTransaction(System.String)">
+            <summary>
+            Checks transaction status
+            </summary>
+            <param name="transactionId">Transaction ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:Singluar.Resources.CheckTransactionResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.CheckTransactionResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.CheckTransactionResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.CheckTransactionResources.Success">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია წარმატებულია.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.CheckTransactionResources.TransactionNotFound">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია ვერ მოიძებნა.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.CheckTransactionResources.TransactionRollbacked">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია დაროლბექებულია.
+            </summary>
+        </member>
+        <member name="T:Singluar.Resources.DecreaseBalanceResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.DecreaseBalanceResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.DecreaseBalanceResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.DecreaseBalanceResources.DuplicateTransactionId">
+            <summary>
+              Looks up a localized string similar to ტრანზაქციის id უკვე არსებობს ბაზაში. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.DecreaseBalanceResources.NotEnoughtBalance">
+            <summary>
+              Looks up a localized string similar to ანგარიშზე თანხა არ არის საკმარისი. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.DecreaseBalanceResources.Success">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია წარმატებულია. ბალანსი დარედაქტირდა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.DecreaseBalanceResources.TransactionRejected">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია არ გატარდა. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.DecreaseBalanceResources.UnknownError">
+            <summary>
+              Looks up a localized string similar to გაურკვეველი შეცდომა, უცნობია ბალანსი შეიცვალა თუ არა..
+            </summary>
+        </member>
+        <member name="T:Singluar.Resources.IncreaseBalanceResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.IncreaseBalanceResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.IncreaseBalanceResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.IncreaseBalanceResources.DuplicateTransactionId">
+            <summary>
+              Looks up a localized string similar to ტრანზაქციის id უკვე არსებობს ბაზაში. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.IncreaseBalanceResources.Success">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია წარმატებულია. ბალანსი დარედაქტირდა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.IncreaseBalanceResources.TransactionRejected">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია არ გატარდა. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.IncreaseBalanceResources.UnknownError">
+            <summary>
+              Looks up a localized string similar to გაურკვეველი შეცდომა, უცნობია ბალანსი შეიცვალა თუ არა..
+            </summary>
+        </member>
+        <member name="T:Singluar.Resources.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.CasinoRolledBackWithDrawFailed">
+            <summary>
+              Looks up a localized string similar to კაზინოს ტრანზაქცია დაროლბექდა, თანხის გამოტანა ვერ მოხერხდა.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.DecreaseBalanceDuplicateTransactionId">
+            <summary>
+              Looks up a localized string similar to ტრანზაქციის id უკვე არსებობს ბაზაში. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.DecreaseBalanceNotEnoughtBalance">
+            <summary>
+              Looks up a localized string similar to ანგარიშზე თანხა არ არის საკმარისი. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.DecreaseBalanceSuccess">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია წარმატებულია. ბალანსი დარედაქტირდა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.DecreaseBalanceTransactionRejected">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია არ გატარდა. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.DecreaseBalanceUnknownError">
+            <summary>
+              Looks up a localized string similar to გაურკვეველი შეცდომა, უცნობია ბალანსი შეიცვალა თუ არა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.DecreasingCasinoBalanceFailed">
+            <summary>
+              Looks up a localized string similar to კაზინოს ბალანსის შემცირება ვერ მოხერხდა.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.DecreasingGameBalanceFailed">
+            <summary>
+              Looks up a localized string similar to თამაშის ბალანსის შემცირება ვერ მოხერხდა.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.DepositSuccessful">
+            <summary>
+              Looks up a localized string similar to თანხის შეტანა წარმატებით დასრულდა.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.GameRolledBackDepositFailed">
+            <summary>
+              Looks up a localized string similar to თამაის ტრანზაქცია დაროლბექდა, თანხის შეტანა ვერ მოხერხდა.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.IncreaseBalanceDuplicateTransactionId">
+            <summary>
+              Looks up a localized string similar to ტრანზაქციის id უკვე არსებობს ბაზაში. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.IncreaseBalanceSuccess">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია წარმატებულია. ბალანსი დარედაქტირდა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.IncreaseBalanceTransactionRejected">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია არ გატარდა. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.IncreaseBalanceUnknownError">
+            <summary>
+              Looks up a localized string similar to გაურკვეველი შეცდომა, უცნობია ბალანსი შეიცვალა თუ არა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.RollingBackCasinoFailed">
+            <summary>
+              Looks up a localized string similar to კაზინოს ტრანზაქციის დაროლბექება ვერ მოხერხდა.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.RollingBackGameFailed">
+            <summary>
+              Looks up a localized string similar to თამაშის ტრანზაქციის დაროლბექება ვერ მოხერხდა.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.WithdrawedSuccessfully">
+            <summary>
+              Looks up a localized string similar to თანხა წარმატებით გადმოვიდა კაზინოდან თამაშისკენ.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.YourCurrentBalances">
+            <summary>
+              Looks up a localized string similar to თქვენი მიმდინარე ბალანსებია: თამაში - {0}, კაზინო - {1}.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.YourCurrentCasinoBalance">
+            <summary>
+              Looks up a localized string similar to თქვენი მიმდინარე კაზინოს ბალანსია: {0}.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.Resources.YourCurrentGameBalance">
+            <summary>
+              Looks up a localized string similar to თქვენი მიმდინარე თამაშის ბალანსია: {0}.
+            </summary>
+        </member>
+        <member name="T:Singluar.Resources.RollbackResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.RollbackResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.RollbackResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.RollbackResources.NotEnoughtBalance">
+            <summary>
+              Looks up a localized string similar to ანგარიშზე თანხა არ არის საკმარისი. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.RollbackResources.Success">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია წარმატებულია. ბალანსი დარედაქტირდა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.RollbackResources.TransactionAlreadyMarkedAsRollback">
+            <summary>
+              Looks up a localized string similar to ეს ტრანზაქცია უკვე დაროლბექებულია. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.RollbackResources.TransactionNotFound">
+            <summary>
+              Looks up a localized string similar to ტრანზაქცია არ მოიძებნა. ბალანსი არ შეიცვალა..
+            </summary>
+        </member>
+        <member name="P:Singluar.Resources.RollbackResources.UnknownError">
+            <summary>
+              Looks up a localized string similar to გაურკვეველი შეცდომა, უცნობია ბალანსი შეიცვალა თუ არა..
+            </summary>
+        </member>
+        <member name="T:Singluar.Utilities.Attributes.IsPositive">
+            <summary>
+            Checks if the given decimal attribute is greater than zero.
+            </summary>
+        </member>
+    </members>
+</doc>
