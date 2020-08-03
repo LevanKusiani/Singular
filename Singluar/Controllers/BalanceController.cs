@@ -31,7 +31,7 @@ namespace Singluar.Controllers
         /// Gets current balance on casino side
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet()]
         [Route("balance")]
         [ProducesResponseType(typeof(IEnumerable<string>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
@@ -64,8 +64,7 @@ namespace Singluar.Controllers
         /// <param name="transactionid">Transaction ID</param>
         /// <param name="amount">Money amount</param>
         /// <returns></returns>
-        [HttpPut]
-        [Route("withdraw/{{transactionid}}/{{amount}}")]
+        [HttpPut("withdraw/{{transactionid}}/{{amount}}")]
         [ProducesResponseType(typeof((ErrorCode code, string message)), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<(ErrorCode code, string message)>> Withdraw(string transactionid, [IsPositive] decimal amount)

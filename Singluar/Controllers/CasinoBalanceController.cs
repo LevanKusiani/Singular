@@ -38,13 +38,15 @@ namespace Singluar.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("checktransaction/{{transactionId}}")]
-        [ProducesResponseType(typeof(IEnumerable<string>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(string), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public ActionResult<ErrorCode> CheckTransaction(string transactionId)
+        public ActionResult<string> CheckTransaction(string transactionId)
         {
             if (ModelState.IsValid)
             {
-                return _factory.GetManagerService(BalanceFactoryType.Casino).CheckTransaction(transactionId);
+                var result = _factory.GetManagerService(BalanceFactoryType.Casino).CheckTransaction(transactionId);
+
+                return Resources.CheckTransactionResources.ResourceManager.GetString(result.ToString()) ?? string.Empty;
             }
 
             return BadRequest();

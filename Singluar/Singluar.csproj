@@ -9,9 +9,13 @@
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;1591</NoWarn>
+    <DocumentationFile>C:\Users\levan\source\repos\Singluar\Singluar\Singluar.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="External\" />
-    <Folder Include="Utilities\Helpers\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -75,6 +79,12 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RollbackResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="External\BalanceManager.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 
